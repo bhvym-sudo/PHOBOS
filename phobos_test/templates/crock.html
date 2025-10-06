@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+    <title>Profile | crock</title>
+    <style>
+        body {
+            background: #f6f7f8;
+            color: #1a1a1b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-header {
+            background: white;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
+            padding: 32px 0 14px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: #eee;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #fff;
+            box-shadow: 0 1px 5px rgb(0 0 0 / 12%);
+        }
+        .profile-avatar img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+        .profile-username {
+            font-size: 2em;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .profile-handle {
+            color: #7c7c7c;
+            font-size: 1.05em;
+        }
+        .profile-nav {
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 2px solid #e2e5ea;
+            width: 100%;
+            max-width: 560px;
+            justify-content: flex-start;
+            gap: 12px;
+        }
+        .profile-nav-btn {
+            background: #e9ecef;
+            color: #1a1a1b;
+            border: none;
+            border-radius: 22px 22px 0 0;
+            font-weight: 600;
+            font-size: 1.06em;
+            padding: 9px 26px;
+            margin-bottom: -2px;
+            cursor: pointer;
+            transition: background .14s;
+        }
+        .profile-nav-btn.active {
+            background: #dbeafe;
+            color: #2564cf;
+        }
+        .profile-content {
+            max-width: 670px;
+            margin: 22px auto;
+        }
+        .activity-list {
+            margin-top: 18px;
+        }
+        .activity-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 5px rgb(0 0 0 / 4%);
+            padding: 15px 20px 18px 20px;
+            margin-bottom: 24px;
+            border: 1px solid #e6e6e6;
+        }
+        .activity-item .subreddit {
+            font-weight: 600;
+            font-size: 1.01em;
+            color: #454ade;
+            margin-bottom: 2px;
+        }
+        .activity-title {
+            font-weight: 700;
+            font-size: 1.08em;
+            margin-top: 3px;
+            color: #141415;
+        }
+        .activity-meta {
+            color: #979b9f;
+            font-size: 0.98em;
+            margin: 2px 0 7px 0;
+            font-weight: 500;
+        }
+        .activity-body {
+            margin: 4px 0 0 0;
+            font-size: 1.09em;
+            color: #1b1e23;
+        }
+        .activity-reply-to {
+            margin-bottom: 3px;
+            font-size: 0.97em;
+        }
+        .activity-emojis {
+            font-size: 20px;
+            margin: 2px 0 7px 0;
+            display: flex;
+        }
+        .activity-actions {
+            display: flex;
+            gap: 24px;
+            font-size: 1em;
+            color: #939393;
+            margin-top: 12px;
+        }
+        .activity-actions .icon {
+            vertical-align: -3px;
+            margin-right: 4px;
+        }
+        .activity-actions span {
+            cursor: pointer;
+        }
+        .reply {
+            margin: 0 0 0 26px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-header">
+        <div class="profile-avatar">
+            <img src="https://www.redditstatic.com/avatars/avatar_default_01_94E044.png" alt="avatar">
+        </div>
+        <div class="profile-username">crock</div>
+        <div class="profile-handle">u/crock</div>
+        <nav class="profile-nav">
+            <button class="profile-nav-btn active">Comments</button>
+        </nav>
+    </div>
+    <div class="profile-content">
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="subreddit">r/TechDiscussion &bull; </div>
+                <div class="activity-title">
+                    Discuss the latest in web technologies, international relations, military practices, and armed tools shaping the future of India.
+                </div>
+                <div class="activity-body">
+                    India’s international relations in 2025 are marked by strategic balance, proactive diplomacy, and economic partnerships aimed at global influence and regional stability
+                </div>
+                <div class="activity-actions">
+                    <span><span class="icon">▲</span>12</span>
+                    <span><span class="icon">💬</span> Reply</span>
+                    <span><span class="icon">⮌</span>Share</span>
+                    <span><span class="icon">⋯</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

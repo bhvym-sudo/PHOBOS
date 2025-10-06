@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+    <title>Chat Console</title>
+    <style>
+        body {
+            background: #0b0039;
+            margin: 0;
+            min-height: 100vh;
+            color: #eee;
+            font-family: Consolas, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            user-select: none;
+        }
+        .container {
+            width: 100%;
+            max-width: 720px;
+            background: #2f0044;
+            box-shadow: inset 0 0 15px #3e075f;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            max-height: 80vh;
+        }
+        .header {
+            padding: 14px 22px;
+            border-bottom: 2px solid #480363;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .chatter-list span {
+            margin-right: 10px;
+            font-weight: normal;
+        }
+        .plug   { color: #a36fff; }
+        .asasa  { color: #b97376; }
+        .polit  { color: #e0467a; }
+        .kkeo   { color: #769bd3; }
+        .s123s1 { color: #7adc99; }
+        .chat-area {
+            background: #3a004a;
+            flex-grow: 1;
+            padding: 14px 22px;
+            overflow-y: auto;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .chat-line {
+            display: flex;
+            align-items: flex-start;
+            margin: 6px 0;
+            line-height: 1.4;
+            gap: 10px;
+        }
+        .timestamp {
+            flex: 0 0 80px;
+            color: #986099;
+            user-select: text;
+        }
+        .username {
+            flex: 0 0 110px;
+            font-weight: 700;
+            user-select: text;
+        }
+        .username.user1 {
+            color: #ee4f54;
+        }
+        .username.user2 {
+            color: #5a9ff6;
+        }
+        .message-text {
+            flex: 1 1 auto;
+            color: #d3d3d3;
+            user-select: text;
+        }
+        .message-text a {
+            color: #94caff;
+            text-decoration: underline;
+        }
+        .footer {
+            background: #2f0044;
+            border-top: 2px solid #480363;
+            padding: 12px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        label {
+            color: #aa94d6;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            background: #21003c;
+            border: 1px solid #684a91;
+            border-radius: 4px;
+            color: #d0c3ff;
+            font-size: 1em;
+            padding: 8px 12px;
+            font-family: Consolas, monospace;
+        }
+        select {
+            background: #21003c;
+            border: 1px solid #684a91;
+            border-radius: 4px;
+            color: #d0c3ff;
+            font-weight: 600;
+            padding: 8px 12px;
+            font-family: Consolas, monospace;
+        }
+        button.send {
+            background: #560073;
+            border: none;
+            color: #e5d8ff;
+            cursor: pointer;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            transition: background-color 0.2s ease;
+        }
+        button.send:hover {
+            background: #7720b7;
+        }
+        .controls {
+            background: #2f0044;
+            border-top: 2px solid #480363;
+            padding: 12px 22px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .controls button {
+            background: #560073;
+            border: none;
+            color: #e5d8ff;
+            font-weight: 700;
+            padding: 8px 22px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Consolas, monospace;
+            transition: background-color 0.3s ease;
+        }
+        .controls button.exit {
+            background: #972126;
+            color: #f0dede;
+        }
+        .controls button.exit:hover {
+            background: #b7323a;
+        }
+        .controls button:hover {
+            background: #7a4dcb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Chat Console<br>
+        </div>
+
+        <div class="chat-area" id="chat-area">
+            {% for msg in messages %}
+            <div class="chat-line">
+                <span class="timestamp">{{ loop.index|string }}</span>
+                <span class="username {% if msg.user == 'User1' %}user1{% else %}user2{% endif %}">{{ msg.user }}:</span>
+                <span class="message-text">{{ msg.text }}</span>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="footer">
+            <label for="plug">plug:</label>
+            <input id="plug" type="text" placeholder="Type your message here...">
+            <button class="send">Send</button>
+            <select>
+                <option>Current chatter(s)</option>
+                <option>User1</option>
+                <option>User2</option>
+            </select>
+        </div>
+
+        <div class="controls">
+            <button class="reload">Reload</button>
+            <button class="help">Help</button>
+            <button class="exit">Exit</button>
+        </div>
+    </div>
+</body>
+</html>

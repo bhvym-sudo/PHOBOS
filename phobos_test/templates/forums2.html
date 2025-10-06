@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+<head>
+    <title>Operation Sindoor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f6f7f8;
+            color: #1a1a1b;
+            display: flex;
+            justify-content: center;
+            padding: 30px 10px;
+        }
+        .container {
+            width: 100%;
+            max-width: 720px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+            padding: 24px 28px;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .tagline {
+            background: #0079d3;
+            color: white;
+            display: inline-block;
+            font-weight: 600;
+            padding: 4px 12px;
+            font-size: 14px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 16px;
+            color: #3c4043;
+            margin-bottom: 20px;
+        }
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #828282;
+            margin-bottom: 24px;
+        }
+        .meta div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .meta svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+        /* Voting buttons */
+        .vote-section {
+            display: flex;
+            gap: 20px;
+            border-top: 1px solid #dddfe2;
+            border-bottom: 1px solid #dddfe2;
+            padding: 14px 0;
+            margin-bottom: 24px;
+        }
+        .vote-button {
+            background: #f6f7f8;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #474747;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s ease;
+        }
+        .vote-button:hover {
+            background: #e0e0e0;
+        }
+        /* Comment Input */
+        .comment-input {
+            margin-bottom: 20px;
+        }
+        .comment-input textarea {
+            width: 100%;
+            height: 70px;
+            resize: vertical;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+        }
+        .comment-input button {
+            margin-top: 10px;
+            background: #0079d3;
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 22px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .comment-input button:hover {
+            background: #005ea2;
+        }
+        /* Comments */
+        .comments {
+            max-height: 500px;
+            overflow-y: auto;
+            border-top: 1px solid #dddfe2;
+            padding-top: 14px;
+        }
+        .comment-block {
+            margin-bottom: 16px;
+        }
+        .comment {
+            padding: 10px 0 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        .comment:last-child {
+            border-bottom: none;
+        }
+        .comment-user {
+            font-weight: 700;
+            color: #0079d3;
+            margin-bottom: 2px;
+        }
+        .comment-meta {
+            color: #828282;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        .comment-text {
+            font-size: 15px;
+            color: #3c4043;
+            white-space: pre-wrap;
+        }
+        .comment-actions {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #999;
+            display: flex;
+            gap: 16px;
+        }
+        .comment-actions span {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .comment-actions span:hover {
+            color: #0079d3;
+        }
+        /* Indentation for replies */
+        .replies {
+            margin-left: 32px;
+            border-left: 2px solid #e0e0e0;
+            padding-left: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Operation Sindoor</h1>
+        <div class="tagline">Development Discussion</div>
+        <div class="description">
+            Discuss the strategic execution and the technological advancements demonstrated in Operation Sindoor
+        </div>
+        <div class="meta">
+            <div><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 
+                3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01
+                14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+                6.86-8.55 11.54L12 21.35z"/></svg>25 Upvotes</div>
+            <div><svg viewBox="0 0 24 24"><path d="M21 6h-2v9H5v2h14a1 1 0 0 0 1-1V6zM17 
+                12v-6a1 1 0 0 0-1-1H4a1 1 0 0 
+                0-1 1v8c0 .55.45 1 1 1h10a1 1 0 0 0 1-1h2zm-5-2H7V8h5v2z"/></svg>9 Comments</div>
+            <div><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 1 0 22 12 10 10 0 0 0 12
+                2zm.82 6.73 1.43 1.79a2 2 0 0 
+                1 .09 2.03l-.94 1.55v.66a.9.9 0 0 1-.89.87.9.9 0 0 
+                1-.9-.87v-.66l-.93-1.55a2 2 0 0 1 
+                .12-2.06l1.37-1.66a.52.52 0 0 1 
+                .75-.03zm-.92-3.49a1.13 1.13 0 1 1 
+                1.13-1.12 1.12 1.12 0 0 1-1.13 
+                1.12z"/></svg>4 Share</div>
+        </div>
+        <div class="comment-input">
+            <textarea placeholder="Join the conversation"></textarea>
+            <button>Post Comment</button>
+        </div>
+        <div class="comments">
+            <!-- Comment 1 -->
+            <div class="comment-block">
+                <div class="comment">
+                    <div class="comment-user">sia_enth</div>
+                    <div class="comment-meta">24m ago</div>
+                    <div class="comment-text">This operation exemplifies India’s evolution into a modern, integrated military force capable of coordinated multi-domain action.</div>
+                    <div class="comment-actions">
+                        <span>Vote</span><span>Reply</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Comment 2 -->
+            <div class="comment-block">
+                <div class="comment">
+                    <div class="comment-user">new_wolf</div>
+                    <div class="comment-meta">2h ago</div>
+                    <div class="comment-text">The successful execution of Operation Sindoor sent a clear message that India will decisively dismantle terrorism networks</div>
+                    <div class="comment-actions">
+                        <span>Vote</span><span>Reply</span>
+                    </div>
+                </div>
+                <div class="replies">
+                    <div class="comment">
+                        <div class="comment-user">sergio</div>
+                        <div class="comment-meta">1h ago</div>
+                        <div class="comment-text">It was just a reckless show of force that failed miserably to achieve any real strategic objectives</div>
+                        <div class="comment-actions">
+                            <span>Vote</span><span>Reply</span>
+                        </div>
+                    </div>
+                    <div class="replies">
+                        <div class="comment">
+                            <div class="comment-user">new_wolf</div>
+                            <div class="comment-meta">50m ago</div>
+                            <div class="comment-text">WTH! The operation showcased unprecedented jointness among Indian Army, Navy, and Air Force, employing cutting-edge missile strikes and loitering munitions while minimizing collateral damage</div>
+                            <div class="comment-actions">
+                                <span>Vote</span><span>Reply</span>
+                            </div>
+                        </div>
+                        <div class="replies">
+                            <div class="comment">
+                                <div class="comment-user">sergio</div>
+                                <div class="comment-meta">48m ago</div>
+                                <div class="comment-text">Huhh, you will see the unpredictable jointness soon.</div>
+                                <div class="comment-actions">
+                                    <span>Vote</span><span>Reply</span>
+                                </div>
+                            </div>    
+                            <div class="replies">
+                                    <div class="comment">
+                                        <div class="comment-user">new_wolf</div>
+                                        <div class="comment-meta">47m ago</div>
+                                        <div class="comment-text">Sounds cryptic, wdym by that.</div>
+                                        <div class="comment-actions">
+                                            <span>Vote</span><span>Reply</span>
+                                        </div>
+                                    </div>
+                                    <div class="replies">
+                                        <div class="comment">
+                                            <div class="comment-user">sergio</div>
+                                            <div class="comment-meta">47m ago</div>
+                                            <div class="comment-text">Will enjoy morning tea in DELHI.</div>
+                                            <div class="comment-actions">
+                                                <span>Vote</span><span>Reply</span>
+                                            </div>
+                                        </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Comment 3 -->
+            <div class="comment-block">
+                <div class="comment">
+                    <div class="comment-user">crockler</div>
+                    <div class="comment-meta">58m ago</div>
+                    <div class="comment-text">The advanced precision and cutting-edge technology of weapons like the SCALP, HAMMER, BrahMos missiles, and kamikaze drones brilliantly showcased India’s unmatched military prowess in Operation Sindoor.</div>
+                    <div class="comment-actions">
+                        <span>Vote</span><span>Reply</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Comment 4 -->
+            <div class="comment-block">
+                <div class="comment">
+                    <div class="comment-user">Clear_Raspberry</div>
+                    <div class="comment-meta">3h ago</div>
+                    <div class="comment-text">Without fear, love does not arise : Air Marshal Awadhesh Kumar ❤️</div>
+                    <div class="comment-actions">
+                        <span>Vote</span><span>Reply</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

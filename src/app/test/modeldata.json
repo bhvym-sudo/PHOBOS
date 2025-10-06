@@ -1,0 +1,8 @@
+[
+    {"text": "We must destroy India and its people", "label": "anti_india"},
+    {"text": "Down with the Indian government", "label": "anti_india"},
+    {"text": "I love Indian food and culture", "label": "neutral"},
+    {"text": "India is making progress in technology", "label": "neutral"},
+    {"text": "Attacks on India should be supported", "label": "anti_india"},
+    {"text": "Let's collaborate with Indian students", "label": "neutral"}
+]
