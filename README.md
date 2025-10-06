@@ -13,7 +13,3 @@ monitoring anti-india activities such as terrorist fundings, illegal weapons sal
 - The application will have feature to add the onion links which are to be kept in surveillance. This way more the people use applications, more links will be added
 and good amount of dark web will monitored by indian authorities.
 - A standalone gui application which can be distributed easily and is safe , with login for each candidate with encryprted data tranfer.
-
-# Refernces
-- Inspired by XkeyScore, NSA ,CIA.
-- Edward snowden
